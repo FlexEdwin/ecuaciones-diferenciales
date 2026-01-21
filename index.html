@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taller de Repaso: Ecuaciones Diferenciales | FlexEdwin</title>
-    <!-- MathJax para fórmulas matemáticas profesionales -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <!-- Fuentes de Google -->
+    
+    <!-- FUENTES DE GOOGLE -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
     
+    <!-- CONFIGURACIÓN DE MATHJAX (CORRECCIÓN IMPORTANTE) -->
+    <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']], // Esto permite usar $ para fórmulas
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+    </script>
+    <!-- LIBRERÍA MATHJAX -->
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
     <style>
         :root {
             --primary-color: #0056b3;
@@ -44,26 +57,30 @@
             text-align: center;
             border-radius: 0 0 10px 10px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
         }
 
         header h1 {
             margin: 0;
-            font-size: 2.5em;
+            font-size: 2.2em;
         }
 
         header p {
-            font-size: 1.2em;
+            font-size: 1.1em;
             opacity: 0.9;
+            margin-top: 10px;
         }
 
         .section-title {
             text-align: center;
-            margin-top: 50px;
-            margin-bottom: 30px;
+            margin-top: 20px;
+            margin-bottom: 40px;
             color: var(--secondary-color);
-            border-bottom: 2px solid var(--primary-color);
+            border-bottom: 3px solid var(--primary-color);
             display: inline-block;
-            padding-bottom: 10px;
+            padding-bottom: 5px;
+            font-size: 1.5em;
+            letter-spacing: 1px;
         }
 
         .card {
@@ -73,12 +90,6 @@
             margin-bottom: 30px;
             overflow: hidden;
             border: 1px solid var(--border-color);
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
         }
 
         .card-header {
@@ -90,6 +101,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .badge {
@@ -98,33 +111,50 @@
             padding: 4px 8px;
             border-radius: 4px;
             font-size: 0.8em;
+            white-space: nowrap;
         }
 
         .card-body {
             padding: 20px;
         }
 
+        /* Estilo mejorado para bloques matemáticos */
         .math-block {
             background: #fafafa;
-            padding: 15px;
+            padding: 20px;
             border-left: 4px solid var(--primary-color);
-            margin: 15px 0;
+            margin: 20px 0;
             font-family: 'Source Code Pro', monospace;
-            overflow-x: auto;
+            overflow-x: auto; /* Permite scroll horizontal en móviles */
+            font-size: 1.1em;
+            display: flex;
+            justify-content: center;
         }
 
         .step-title {
             font-weight: bold;
             color: var(--secondary-color);
-            margin-top: 15px;
+            margin-top: 20px;
             display: block;
+            margin-bottom: 10px;
+            text-decoration: underline;
+            text-decoration-color: #ddd;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
         }
 
         .alert {
-            padding: 10px 15px;
+            padding: 12px 15px;
             border-radius: 4px;
-            margin-top: 10px;
+            margin-top: 15px;
             font-size: 0.95em;
+            line-height: 1.5;
         }
 
         .alert-vacios {
@@ -142,17 +172,18 @@
         .final-answer {
             background-color: var(--success-color);
             color: #155724;
-            padding: 15px;
+            padding: 20px;
             border-radius: 4px;
-            margin-top: 20px;
+            margin-top: 25px;
             border: 1px solid #c3e6cb;
             font-weight: bold;
+            text-align: center;
         }
 
         footer {
             text-align: center;
             margin-top: 60px;
-            padding: 30px;
+            padding: 40px;
             background: #343a40;
             color: #bdc3c7;
             font-size: 0.9em;
@@ -164,7 +195,8 @@
 
         @media (max-width: 600px) {
             header h1 { font-size: 1.8em; }
-            .container { padding: 10px; }
+            .container { padding: 15px; }
+            .math-block { font-size: 0.9em; justify-content: flex-start; }
         }
     </style>
 </head>
