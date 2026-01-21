@@ -594,3 +594,300 @@
             Reemplazando en la integral:
             $$I = \int \frac{1}{\ln x} \left(\frac{1}{x} dx\right) = \int \frac{1}{u} du$$
         </div>
+
+        <div class="result-box">
+            <strong>Resultado:</strong><br>
+            $$I = \ln|\ln(x)| + C$$
+        </div>
+    </div>
+
+    <!-- INTEGRAL 3 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">3. Coseno Cuadrado</span>
+            <span class="method-tag">Por Partes (Cíclica)</span>
+        </div>
+        <div class="math-display">$$I = \int \cos^2(x) \, dx$$</div>
+
+        <div class="step-block">
+            <span class="step-label">Desarrollo:</span><br>
+            $u = \cos x, \quad dv = \cos x dx$<br>
+            $du = -\sin x dx, \quad v = \sin x$<br>
+            Aplicando partes:
+            $$I = \cos x \sin x - \int \sin x (-\sin x) dx = \cos x \sin x + \int \sin^2 x dx$$
+        </div>
+        <div class="step-block">
+            <span class="step-label">Truco de Identidad:</span><br>
+            Cambiamos $\sin^2 x$ por $1 - \cos^2 x$:
+            $$I = \cos x \sin x + \int (1 - \cos^2 x) dx$$
+            $$I = \cos x \sin x + x - I$$
+        </div>
+
+        <div class="result-box">
+            <strong>Despeje (2I):</strong><br>
+            $$I = \frac{x}{2} + \frac{\sin(2x)}{4} + C$$
+        </div>
+    </div>
+
+    <!-- INTEGRAL 4 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">4. Logaritmo y Raíz</span>
+            <span class="method-tag">Sustitución + Partes</span>
+        </div>
+        <div class="math-display">$$I = \int \frac{\ln(x)}{\sqrt{x}} \, dx$$</div>
+
+        <div class="step-block">
+            <span class="step-label">Paso 1: Eliminar raíz</span><br>
+            $u = \sqrt{x} \Rightarrow x = u^2 \Rightarrow dx = 2u du$.<br>
+            Como $\ln(x) = \ln(u^2) = 2\ln u$:
+            $$I = \int \frac{2\ln u}{u} (2u du) = 4\int \ln u du$$
+        </div>
+        <div class="step-block">
+            <span class="step-label">Paso 2: Por partes</span><br>
+            Sabemos que $\int \ln u du = u\ln u - u$.
+        </div>
+
+        <div class="result-box">
+            <strong>Resultado:</strong><br>
+            Reemplazando $u = \sqrt{x}$:<br>
+            $$I = 4\sqrt{x}\ln(\sqrt{x}) - 4\sqrt{x} + C$$
+        </div>
+    </div>
+
+    <!-- INTEGRAL 5 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">5. Exponencial Racional</span>
+            <span class="method-tag">Análisis</span>
+        </div>
+        <div class="math-display">$$I = \int \frac{e^x}{x^2 + 1} \, dx$$</div>
+
+        <div class="step-block">
+            <span class="step-label">Intento:</span><br>
+            Si hacemos $u = x^2+1$, el diferencial requiere una $x$ en el numerador, pero tenemos $e^x$.<br>
+            Si hacemos $u = e^x$, obtenemos $\int \frac{du}{(\ln u)^2 + 1}$, que no es una integral directa conocida.
+        </div>
+
+        <div class="error-analysis">
+            <strong>Conclusión:</strong>
+            La integral no se puede expresar mediante funciones elementales.
+        </div>
+    </div>
+
+    <!-- INTEGRAL 6 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">6. Trigonométrica Racional</span>
+            <span class="method-tag">Análisis</span>
+        </div>
+        <div class="math-display">$$I = \int \frac{x \sin(x)}{x^2 + 1} \, dx$$</div>
+
+        <div class="step-block">
+            <span class="step-label">Evaluación:</span><br>
+            Al intentar por partes con $u = \sin x$ y $dv = \frac{x}{x^2+1}$, obtenemos un logaritmo $\ln(x^2+1)$ que multiplica al coseno. La integral resultante es más difícil que la original.
+        </div>
+
+        <div class="error-analysis">
+            <strong>Conclusión:</strong>
+            No tiene solución analítica sencilla.
+        </div>
+    </div>
+
+    <!-- INTEGRAL 7 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">7. Polinomio por Coseno</span>
+            <span class="method-tag">Doble Partes</span>
+        </div>
+        <div class="math-display">$$I = \int x^2 \cos(x) \, dx$$</div>
+
+        <div class="concept-box">
+            <span class="concept-title">Estrategia:</span>
+            Debemos derivar el $x^2$ dos veces para que desaparezca.
+        </div>
+
+        <div class="step-block">
+            <span class="step-label">Iteración 1:</span><br>
+            $u=x^2, dv=\cos x dx \Rightarrow I = x^2\sin x - \int 2x\sin x dx$
+        </div>
+        <div class="step-block">
+            <span class="step-label">Iteración 2:</span><br>
+            Para $\int x\sin x dx$: $u=x, dv=\sin x dx \Rightarrow -x\cos x + \sin x$.
+        </div>
+        <div class="step-block">
+            <span class="step-label">Unificación:</span><br>
+            $I = x^2\sin x - 2(-x\cos x + \sin x)$
+        </div>
+
+        <div class="result-box">
+            <strong>Resultado:</strong><br>
+            $$I = x^2\sin(x) + 2x\cos(x) - 2\sin(x) + C$$
+        </div>
+    </div>
+
+    <!-- INTEGRAL 8 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">8. Logaritmo por Seno</span>
+            <span class="method-tag">Análisis</span>
+        </div>
+        <div class="math-display">$$I = \int \ln(x) \sin(x) \, dx$$</div>
+
+        <div class="step-block">
+            <span class="step-label">Intento:</span><br>
+            Aplicando partes con $u=\ln x$, llegamos a $\int \frac{\cos x}{x} dx$.
+        </div>
+
+        <div class="error-analysis">
+            <strong>Conclusión:</strong>
+            Llegamos a la función integral coseno ($Ci(x)$), que no es una función elemental. Se detiene el procedimiento.
+        </div>
+    </div>
+
+    <!-- INTEGRAL 9 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">9. Exponencial sobre Potencia</span>
+            <span class="method-tag">Análisis</span>
+        </div>
+        <div class="math-display">$$I = \int \frac{e^x}{x^3} \, dx$$</div>
+
+        <div class="step-block">
+            <span class="step-label">Análisis:</span><br>
+            Al usar partes para reducir el denominador, eventualmente llegaremos a $\int \frac{e^x}{x} dx$.
+        </div>
+
+        <div class="error-analysis">
+            <strong>Conclusión:</strong>
+            Corresponde a la integral exponencial $Ei(x)$. No tiene solución algebraica simple.
+        </div>
+    </div>
+
+    <!-- INTEGRAL 10 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">10. Integral Cotangente</span>
+            <span class="method-tag">Sustitución Directa</span>
+        </div>
+        <div class="math-display">$$I = \int \frac{\cos(x)}{\sin(x)} \, dx$$</div>
+
+        <div class="step-block">
+            <span class="step-label">Observación:</span><br>
+            El numerador es exactamente la derivada del denominador.
+        </div>
+        <div class="step-block">
+            <span class="step-label">Cálculo:</span><br>
+            $u = \sin(x) \Rightarrow du = \cos(x) dx$.<br>
+            $\int \frac{du}{u} = \ln|u|$
+        </div>
+
+        <div class="result-box">
+            <strong>Resultado:</strong><br>
+            $$I = \ln|\sin(x)| + C$$
+        </div>
+    </div>
+
+    <!-- INTEGRAL 11 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">11. Gaussiana</span>
+            <span class="method-tag">Análisis</span>
+        </div>
+        <div class="math-display">$$I = \int x^2 e^{-x^2} \, dx$$</div>
+
+        <div class="error-analysis">
+            <strong>Conclusión:</strong>
+            Esta integral está relacionada con la Función Error ($\text{erf}(x)$). No se puede resolver por sustitución simple ni partes para obtener una función cerrada básica.
+        </div>
+    </div>
+
+    <!-- INTEGRAL 12 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">12. Logaritmo por Coseno</span>
+            <span class="method-tag">Análisis</span>
+        </div>
+        <div class="math-display">$$I = \int \ln(x) \cos(x) \, dx$$</div>
+
+        <div class="error-analysis">
+            <strong>Conclusión:</strong>
+            Similar al ejercicio 8, conduce a la función integral seno ($Si(x)$). No tiene solución elemental.
+        </div>
+    </div>
+
+    <!-- INTEGRAL 13 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">13. Exponencial Racional Compleja</span>
+            <span class="method-tag">Análisis</span>
+        </div>
+        <div class="math-display">$$I = \int \frac{e^x}{x^2 \ln(x)} \, dx$$</div>
+
+        <div class="error-analysis">
+            <strong>Conclusión:</strong>
+            La combinación de funciones trascendentes en el denominador hace imposible la integración por métodos estándar.
+        </div>
+    </div>
+
+    <!-- INTEGRAL 14 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">14. Polinomio por Exponencial</span>
+            <span class="method-tag">Doble Partes</span>
+        </div>
+        <div class="math-display">$$I = \int x^2 e^x \, dx$$</div>
+
+        <div class="step-block">
+            <span class="step-label">Procedimiento:</span><br>
+            1. $u=x^2, dv=e^x dx \to x^2 e^x - \int 2x e^x dx$<br>
+            2. $u=x, dv=e^x dx \to xe^x - e^x$<br>
+            Sustituyendo el paso 2 en el paso 1:
+            $$I = x^2 e^x - 2(xe^x - e^x) + C$$
+        </div>
+
+        <div class="result-box">
+            <strong>Resultado (Factorizado):</strong><br>
+            $$I = e^x(x^2 - 2x + 2) + C$$
+        </div>
+    </div>
+
+    <!-- INTEGRAL 15 -->
+    <div class="exercise-card">
+        <div class="exercise-header">
+            <span class="exercise-title">15. Racional Trinomio</span>
+            <span class="method-tag">Completación de Cuadrados</span>
+        </div>
+        <div class="math-display">$$I = \int \frac{1}{x^2 + 4x + 5} \, dx$$</div>
+
+        <div class="concept-box">
+            <span class="concept-title">Nota:</span>
+            El denominador no se puede factorizar en reales. Completamos el cuadrado.
+        </div>
+
+        <div class="step-block">
+            <span class="step-label">Paso 1: Completar Cuadrado</span><br>
+            $x^2 + 4x + 5 = (x^2 + 4x + 4) + 1 = (x+2)^2 + 1$
+        </div>
+        <div class="step-block">
+            <span class="step-label">Paso 2: Sustitución</span><br>
+            $u = x+2, du = dx$.<br>
+            $$I = \int \frac{1}{u^2 + 1} du$$
+            Esta es la integral de arco tangente.
+        </div>
+
+        <div class="result-box">
+            <strong>Resultado:</strong><br>
+            $$I = \arctan(x + 2) + C$$
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>Desarrollo paso a paso para la clase de Ecuaciones Diferenciales para el jinete pollito .</p>
+    <p>© 2026 Flex Edwin. Todos los derechos reservados.</p>
+</footer>
+
+</body>
+</html>
