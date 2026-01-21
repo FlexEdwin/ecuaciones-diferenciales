@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taller de Repaso: Ecuaciones Diferenciales | FlexEdwin</title>
+    <!-- MathJax para fórmulas matemáticas profesionales -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #004494;
+            --accent-color: #f8f9fa;
+            --text-color: #333;
+            --border-color: #e0e0e0;
+            --success-color: #d4edda;
+            --warning-color: #fff3cd;
+            --error-color: #f8d7da;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            background: var(--accent-color);
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--border-color);
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .math-block {
+            background: #fafafa;
+            padding: 15px;
+            border-left: 4px solid var(--primary-color);
+            margin: 15px 0;
+            font-family: 'Source Code Pro', monospace;
+            overflow-x: auto;
+        }
+
+        .step-title {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-top: 15px;
+            display: block;
+        }
+
+        .alert {
+            padding: 10px 15px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 0.95em;
+        }
+
+        .alert-vacios {
+            background-color: var(--warning-color);
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+
+        .alert-imposible {
+            background-color: var(--error-color);
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .final-answer {
+            background-color: var(--success-color);
+            color: #155724;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 20px;
+            border: 1px solid #c3e6cb;
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 30px;
+            background: #343a40;
+            color: #bdc3c7;
+            font-size: 0.9em;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8em; }
+            .container { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1>Taller de Repaso</h1>
+            <p>Ecuaciones Diferenciales: Derivadas e Integrales</p>
+        </div>
+    </header>
+
+    <div class="container">
+        
+        <!-- SECCIÓN DE DERIVADAS -->
+        <div style="text-align: center;">
+            <h2 class="section-title">SECCIÓN 1: DERIVADAS</h2>
+        </div>
+
+        <!-- Ejercicio 1 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 1: Exponencial Compuesta
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$f(x) = e^{3x^2 + 2x + 1}$$</div>
+                
+                <div class="alert alert-vacios">
+                    <strong>Identificación de Vacíos:</strong> Necesitas recordar la Regla de la Cadena ($e^u$) y la Regla de la Potencia.
+                </div>
+
+                <span class="step-title">Desarrollo Estructurado:</span>
+                <ul>
+                    <li>Identificamos el exponente como $u = 3x^2 + 2x + 1$.</li>
+                    <li>Derivamos el exponente: $u' = 6x + 2$.</li>
+                    <li>Aplicamos fórmula $\frac{d}{dx}[e^u] = e^u \cdot u'$:
+                        $$f'(x) = e^{3x^2 + 2x + 1} \cdot (6x + 2)$$
+                    </li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$f'(x) = 2(3x + 1)e^{3x^2 + 2x + 1}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 2 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 2: Cociente Logarítmico
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$g(x) = \frac{x^3}{\ln(x)}$$</div>
+                
+                <div class="alert alert-vacios">
+                    <strong>Reglas:</strong> Regla del Cociente y Derivada del Logaritmo Natural.
+                </div>
+
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>$u = x^3 \to u' = 3x^2$</li>
+                    <li>$v = \ln(x) \to v' = 1/x$</li>
+                    <li>Aplicamos cociente:
+                        $$g'(x) = \frac{(3x^2)\ln(x) - (x^3)(1/x)}{(\ln(x))^2}$$
+                    </li>
+                    <li>Simplificamos $x^3/x = x^2$.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$g'(x) = \frac{x^2(3\ln(x) - 1)}{\ln^2(x)}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 3 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 3: Derivación Implícita
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$\sin(x) + \cos(y) = xy$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Derivamos ambos lados respecto a $x$.</li>
+                    <li>Izq: $\cos(x) - \sin(y)y'$. (Regla cadena en $y$).</li>
+                    <li>Der: $y + xy'$. (Regla producto).</li>
+                    <li>Igualamos: $\cos(x) - \sin(y)y' = y + xy'$.</li>
+                    <li>Agrupamos $y'$: $\cos(x) - y = y'(x + \sin(y))$.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$y' = \frac{\cos(x) - y}{x + \sin(y)}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 4 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 4: Logaritmo de Polinomio
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$h(x) = \ln(2x^3 - x^2 + 3x - 1)$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Usamos la regla $\frac{d}{dx}[\ln(u)] = \frac{u'}{u}$.</li>
+                    <li>$u = 2x^3 - x^2 + 3x - 1$.</li>
+                    <li>$u' = 6x^2 - 2x + 3$.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$h'(x) = \frac{6x^2 - 2x + 3}{2x^3 - x^2 + 3x - 1}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 5 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 5: Cociente con Raíz
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$f(x) = \frac{e^x - 1}{\sqrt{x}}$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Reescribimos denominador como $x^{1/2}$.</li>
+                    <li>Derivada numerador: $e^x$. Derivada denominador: $\frac{1}{2\sqrt{x}}$.</li>
+                    <li>Regla del cociente:
+                        $$f'(x) = \frac{e^x\sqrt{x} - (e^x - 1)\frac{1}{2\sqrt{x}}}{x}$$
+                    </li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$f'(x) = \frac{e^x(2x - 1) + 1}{2x\sqrt{x}}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 6 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 6: Trigonométrica Racional
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$g(x) = \frac{x^2 \sin(x)}{x^2 + 1}$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Aplicamos Regla del Cociente y Regla del Producto en el numerador.</li>
+                    <li>Numerador derivado: $2x\sin(x) + x^2\cos(x)$.</li>
+                    <li>Denominador derivado: $2x$.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$g'(x) = \frac{x[x(x^2 + 1)\cos(x) + 2\sin(x)]}{(x^2 + 1)^2}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 7 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 7: Implícita Polinómica
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$x^3 + y^3 = 9xy$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Derivamos: $3x^2 + 3y^2y' = 9(y + xy')$.</li>
+                    <li>Expandimos: $3x^2 + 3y^2y' = 9y + 9xy'$.</li>
+                    <li>Agrupamos términos con $y'$ a la izquierda.</li>
+                    <li>Factorizamos y simplificamos por 3.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$y' = \frac{3y - x^2}{y^2 - 3x}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 8 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 8: Cociente Simple
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$h(x) = \frac{\ln(x)}{x}$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>$u = \ln(x), v = x$.</li>
+                    <li>$h'(x) = \frac{(1/x)(x) - \ln(x)(1)}{x^2}$.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$h'(x) = \frac{1 - \ln(x)}{x^2}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 9 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 9: Exponencial Cúbica
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$f(x) = e^{x^3}$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Regla de la Cadena. Función interna $x^3$.</li>
+                    <li>Derivada interna $3x^2$.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$f'(x) = 3x^2 e^{x^3}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 10 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 10: Producto Trascendente
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$g(x) = \ln(x) \cdot \cos(x)$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Regla del Producto: $u'v + uv'$.</li>
+                    <li>$u' = 1/x, v' = -\sin(x)$.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$g'(x) = \frac{\cos(x)}{x} - \ln(x)\sin(x)$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 11 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 11: Implícita Compleja
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$e^x + y^2 = \sin(xy)$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Lado izquierdo: $e^x + 2yy'$.</li>
+                    <li>Lado derecho (Cadena + Producto): $\cos(xy)(y + xy')$.</li>
+                    <li>Despejamos $y'$ algebraicamente.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$y' = \frac{y\cos(xy) - e^x}{2y - x\cos(xy)}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 12 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 12: Seno Compuesto en Cociente
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$h(x) = \frac{\sin(x^2)}{x}$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Derivada numerador: $\cos(x^2) \cdot 2x$.</li>
+                    <li>Aplicamos regla del cociente.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$h'(x) = \frac{2x^2\cos(x^2) - \sin(x^2)}{x^2}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 13 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 13: Raíz de Exponencial
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$f(x) = \sqrt{e^{2x} - 1}$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Regla de la Cadena (dos niveles).</li>
+                    <li>Derivada externa: $\frac{1}{2}(e^{2x}-1)^{-1/2}$.</li>
+                    <li>Derivada interna: $2e^{2x}$.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$f'(x) = \frac{e^{2x}}{\sqrt{e^{2x} - 1}}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 14 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 14: Tangente y Potencia
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$g(x) = \frac{\tan(x)}{x^2}$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Derivada de $\tan(x)$ es $\sec^2(x)$.</li>
+                    <li>Regla del cociente y factorización de $x$.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$g'(x) = \frac{x\sec^2(x) - 2\tan(x)}{x^3}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Ejercicio 15 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 15: Implícita Básica
+                <span class="badge">Derivada</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$x^4 + y^4 = 16$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>$4x^3 + 4y^3y' = 0$.</li>
+                    <li>Despejamos $y'$.</li>
+                </ul>
+
+                <div class="final-answer">
+                    Respuesta: $$y' = -\frac{x^3}{y^3}$$
+                </div>
+            </div>
+        </div>
+
+        <!-- SECCIÓN DE INTEGRALES -->
+        <div style="text-align: center;">
+            <h2 class="section-title">SECCIÓN 2: INTEGRALES</h2>
+        </div>
+
+        <!-- Integral 1 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 1: Exponencial y Seno
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int e^{x^2} \sin(x) \, dx$$</div>
+                <div class="alert alert-vacios"><strong>Método:</strong> Sustitución.</div>
+                
+                <span class="step-title">Desarrollo del Análisis:</span>
+                <p>Intentamos sustituir $u = x^2 \Rightarrow du = 2x dx$. Al reemplazar, obtenemos términos mixtos de $x$ y $u$ que no se cancelan.</p>
+                
+                <div class="alert alert-imposible">
+                    <strong>Conclusión:</strong> Esta integral no tiene solución elemental.
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 2 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 2: Logarítmica Racional
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int \frac{1}{x \ln(x)} \, dx$$</div>
+                <div class="alert alert-vacios"><strong>Método:</strong> Sustitución ($u = \ln x$).</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Sea $u = \ln(x)$, entonces $du = \frac{1}{x} dx$.</li>
+                    <li>La integral se convierte en $\int \frac{1}{u} du$.</li>
+                    <li>Integramos: $\ln|u| + C$.</li>
+                </ul>
+                
+                <div class="final-answer">
+                    Respuesta: $$I = \ln|\ln(x)| + C$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 3 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 3: Coseno Cuadrado
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int \cos^2(x) \, dx$$</div>
+                <div class="alert alert-vacios"><strong>Método:</strong> Por Partes (Cíclica) o Identidad.</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Usamos partes: $u=\cos x, dv=\cos x dx$.</li>
+                    <li>Resulta en una integral cíclica donde $I$ aparece restando.</li>
+                    <li>Despejamos $2I = \cos(x)\sin(x) + x$.</li>
+                </ul>
+                
+                <div class="final-answer">
+                    Respuesta: $$I = \frac{x}{2} + \frac{\sin(2x)}{4} + C$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 4 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 4: Logaritmo con Raíz
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int \frac{\ln(x)}{\sqrt{x}} \, dx$$</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Sustitución $u = \sqrt{x} \Rightarrow dx = 2u du$.</li>
+                    <li>Integral resultante: $\int 4\ln(u) du$.</li>
+                    <li>Resolvemos por partes la integral del logaritmo.</li>
+                </ul>
+                
+                <div class="final-answer">
+                    Respuesta: $$I = 4\sqrt{x}\ln(\sqrt{x}) - 4\sqrt{x} + C$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 5 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 5: Exponencial Racional
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int \frac{e^x}{x^2 + 1} \, dx$$</div>
+                
+                <span class="step-title">Desarrollo del Análisis:</span>
+                <p>Las sustituciones estándar no logran simplificar el denominador polinómico con el numerador exponencial.</p>
+                
+                <div class="alert alert-imposible">
+                    <strong>Conclusión:</strong> No tiene solución elemental. Requiere funciones especiales.
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 6 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 6: Trigonométrica Compleja
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int \frac{x \sin(x)}{x^2 + 1} \, dx$$</div>
+                
+                <span class="step-title">Desarrollo del Análisis:</span>
+                <p>Al aplicar integración por partes, obtenemos integrales de logaritmos con cosenos que aumentan la complejidad.</p>
+                
+                <div class="alert alert-imposible">
+                    <strong>Conclusión:</strong> No es integrable mediante métodos elementales.
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 7 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 7: Polinomio por Coseno
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int x^2 \cos(x) \, dx$$</div>
+                <div class="alert alert-vacios"><strong>Método:</strong> Por Partes (Doble).</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Aplicamos partes dos veces para reducir $x^2$ a $x$ y luego a constante.</li>
+                    <li>Parte 1: $x^2 \sin x - \int 2x \sin x dx$.</li>
+                    <li>Parte 2: Resolver $\int x \sin x dx$.</li>
+                </ul>
+                
+                <div class="final-answer">
+                    Respuesta: $$I = x^2 \sin(x) + 2x \cos(x) - 2\sin(x) + C$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 8 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 8: Logaritmo por Seno
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int \ln(x) \sin(x) \, dx$$</div>
+                
+                <span class="step-title">Desarrollo del Análisis:</span>
+                <p>La integración por partes conduce a la integral $\int \frac{\cos x}{x} dx$, conocida como función Integral Coseno (Ci).</p>
+                
+                <div class="alert alert-imposible">
+                    <strong>Conclusión:</strong> No tiene solución en funciones elementales.
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 9 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 9: Exponencial sobre Potencia
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int \frac{e^x}{x^3} \, dx$$</div>
+                
+                <span class="step-title">Desarrollo del Análisis:</span>
+                <p>Al reducir potencias por partes, llegamos inevitablemente a $\int \frac{e^x}{x} dx$, la función Integral Exponencial (Ei).</p>
+                
+                <div class="alert alert-imposible">
+                    <strong>Conclusión:</strong> No tiene solución elemental.
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 10 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 10: Cotangente
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int \frac{\cos(x)}{\sin(x)} \, dx$$</div>
+                <div class="alert alert-vacios"><strong>Método:</strong> Sustitución ($u = \sin x$).</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>$u = \sin(x) \Rightarrow du = \cos(x) dx$.</li>
+                    <li>Integral directa: $\int \frac{1}{u} du$.</li>
+                </ul>
+                
+                <div class="final-answer">
+                    Respuesta: $$I = \ln|\sin(x)| + C$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 11 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 11: Gaussiana con Polinomio
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int x^2 e^{-x^2} \, dx$$</div>
+                
+                <div class="alert alert-imposible">
+                    <strong>Conclusión:</strong> Esta integral está relacionada con la Función Error (erf) y no tiene solución cerrada mediante sustitución simple.
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 12 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 12: Logaritmo por Coseno
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int \ln(x) \cos(x) \, dx$$</div>
+                
+                <span class="step-title">Desarrollo del Análisis:</span>
+                <p>Conduce a la función Integral Seno (Si), imposible de expresar con álgebra básica.</p>
+                
+                <div class="alert alert-imposible">
+                    <strong>Conclusión:</strong> No tiene solución elemental.
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 13 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 13: Exponencial y Logaritmo Inverso
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int \frac{e^x}{x^2 \ln(x)} \, dx$$</div>
+                
+                <div class="alert alert-imposible">
+                    <strong>Conclusión:</strong> Integral altamente compleja sin solución analítica conocida en términos finitos.
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 14 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 14: Polinomio por Exponencial
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int x^2 e^x \, dx$$</div>
+                <div class="alert alert-vacios"><strong>Método:</strong> Por Partes (Doble).</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Similar al ejercicio 7, aplicamos partes dos veces.</li>
+                    <li>Parte 1: Baja $x^2$ a $2x$.</li>
+                    <li>Parte 2: Baja $2x$ a $2$.</li>
+                </ul>
+                
+                <div class="final-answer">
+                    Respuesta: $$I = e^x(x^2 - 2x + 2) + C$$
+                </div>
+            </div>
+        </div>
+
+        <!-- Integral 15 -->
+        <div class="card">
+            <div class="card-header">
+                Ejercicio 15: Racional (Arco Tangente)
+                <span class="badge">Integral</span>
+            </div>
+            <div class="card-body">
+                <div class="math-block">$$I = \int \frac{1}{x^2 + 4x + 5} \, dx$$</div>
+                <div class="alert alert-vacios"><strong>Método:</strong> Completación de Cuadrados.</div>
+                
+                <span class="step-title">Desarrollo:</span>
+                <ul>
+                    <li>Completamos el cuadrado en el denominador: $x^2+4x+5 = (x+2)^2 + 1$.</li>
+                    <li>Sustitución $u = x+2$.</li>
+                    <li>Integral estándar $\int \frac{1}{u^2+1} du = \arctan(u)$.</li>
+                </ul>
+                
+                <div class="final-answer">
+                    Respuesta: $$I = \arctan(x + 2) + C$$
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Creado por <strong>Flex</strong> | Ecuaciones Diferenciales<br>
+        21 de Enero de 2026</p>
+    </footer>
+
+</body>
+</html>
