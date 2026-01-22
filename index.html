@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taller de Repaso: Cálculo Detallado | FlexEdwin</title>
+    <title>Taller de Repaso Detallado | FlexEdwin</title>
     
+    <!-- FUENTES: Manuscrita para notas, Roboto para texto, Monospace para números -->
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Roboto:wght@300;400;500&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
     
+    <!-- MATHJAX -->
     <script>
     window.MathJax = {
       tex: {
@@ -22,39 +24,36 @@
         :root {
             --primary: #2c3e50;
             --accent: #2980b9;
-            --bg-color: #fcfcfc;
-            --text-color: #2c3e50;
-            --paper-line: #e8e8e8;
-            --pencil-gray: #555;
-            --highlight-yellow: #fff9c4;
+            --bg-color: #fdfdfd;
+            --formula-bg: #e3f2fd; /* Azulito suave para fórmulas */
+            --formula-border: #90caf9;
+            --algebra-step: #f5f5f5; /* Gris suave para pasos algebraicos */
         }
 
         body {
             font-family: 'Roboto', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-color);
+            color: #333;
             margin: 0;
             padding: 0;
             line-height: 1.6;
         }
 
-        /* EFECTO CUADERNO EN EL HEADER */
+        /* HEADER */
         header {
-            background-image: linear-gradient(var(--paper-line) 1px, transparent 1px);
-            background-size: 100% 1.5rem;
-            background-color: white;
-            border-bottom: 3px solid var(--primary);
+            background: white;
+            border-bottom: 4px solid var(--primary);
             padding: 40px 20px;
             text-align: center;
+            background-image: linear-gradient(#e8e8e8 1px, transparent 1px);
+            background-size: 100% 25px; 
         }
         header h1 { 
-            font-family: 'Kalam', cursive; /* Fuente tipo manuscrita para el título */
+            font-family: 'Kalam', cursive; 
             color: var(--primary); 
             font-size: 2.5rem; 
-            margin-bottom: 10px;
-            transform: rotate(-1deg);
+            margin: 0;
         }
-        header p { color: #666; font-size: 1.1rem; }
         
         .container {
             max-width: 900px;
@@ -63,21 +62,21 @@
         }
 
         .section-title {
-            font-family: 'Kalam', cursive;
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--accent);
-            border-bottom: 2px dashed #ccc;
-            margin: 50px 0 30px;
+            border-bottom: 2px dashed #bbb;
+            margin: 60px 0 30px;
             padding-bottom: 10px;
+            font-family: 'Kalam', cursive;
         }
 
-        /* TARJETA DE EJERCICIO */
+        /* TARJETAS */
         .exercise-card {
             background: white;
-            border: 1px solid #ddd;
+            border: 1px solid #ccc;
             border-radius: 8px;
             margin-bottom: 50px;
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.05);
+            box-shadow: 4px 4px 0px rgba(0,0,0,0.1); /* Sombra dura tipo retro */
             padding: 30px;
             position: relative;
         }
@@ -85,98 +84,95 @@
         .exercise-num {
             position: absolute;
             top: -15px;
-            left: 20px;
-            background: var(--accent);
+            left: -10px;
+            background: var(--primary);
             color: white;
             padding: 5px 15px;
-            border-radius: 4px;
+            transform: rotate(-3deg);
+            font-family: 'Kalam', cursive;
             font-weight: bold;
-            font-family: 'Source Code Pro', monospace;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
         }
 
         .main-equation {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             text-align: center;
-            margin: 25px 0;
+            margin: 20px 0 30px 0;
+            font-family: 'Source Code Pro', monospace;
+        }
+
+        /* CAJA DE FÓRMULA GENERAL */
+        .formula-box {
+            background-color: var(--formula-bg);
+            border-left: 5px solid var(--formula-border);
             padding: 15px;
-            background: #fdfdfd;
-            border: 1px solid #eee;
+            margin-bottom: 25px;
+            border-radius: 0 5px 5px 0;
         }
-
-        /* ZONA DE "CÁLCULOS AUXILIARES" (SIMULA TU ZONA DE FLECHAS) */
-        .scratchpad {
-            background-color: #fefcf5; /* Color papel amarillento */
-            border-left: 4px solid #f1c40f;
-            padding: 20px;
-            margin: 20px 0;
-            font-family: 'Kalam', cursive; /* Fuente manuscrita */
-            font-size: 1.1rem;
-            color: #444;
-        }
-        .scratchpad-title {
+        .formula-title {
             font-weight: bold;
+            color: var(--accent);
             display: block;
-            margin-bottom: 10px;
-            color: #d35400;
-            text-transform: uppercase;
-            font-size: 0.9rem;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        /* PASOS MECÁNICOS */
-        .step-block { margin-bottom: 20px; }
-        .step-title {
-            font-weight: bold;
-            text-decoration: underline;
-            color: var(--primary);
             margin-bottom: 5px;
-            display: block;
+            font-size: 0.9rem;
+            text-transform: uppercase;
         }
 
+        /* PASOS DE DESPEJE (ÁLGEBRA) */
+        .algebra-step {
+            border-left: 2px solid #ddd;
+            padding-left: 15px;
+            margin: 15px 0;
+            color: #555;
+        }
+        .algebra-instruction {
+            font-family: 'Kalam', cursive;
+            color: #777;
+            font-size: 0.95rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        /* RESPUESTA */
         .final-answer {
             border: 2px solid #27ae60;
-            padding: 15px;
+            background: #eafaf1;
+            padding: 20px;
             text-align: center;
             border-radius: 8px;
             margin-top: 30px;
-            color: #27ae60;
+            color: #1e8449;
             font-weight: bold;
-            background: #f0fff4;
         }
 
         .impossible-note {
-            border: 2px solid #c0392b;
+            background: #fce4ec;
+            border: 2px solid #f48fb1;
             padding: 15px;
-            background: #fff5f5;
-            color: #c0392b;
+            color: #c2185b;
             border-radius: 8px;
-            font-family: 'Kalam', cursive;
+            text-align: center;
         }
 
         footer {
             text-align: center;
             margin-top: 80px;
             padding: 40px;
+            color: #888;
             border-top: 1px solid #eee;
-            color: #aaa;
         }
-
-        @media (max-width: 600px) {
-            header h1 { font-size: 1.8rem; }
-            .container { padding: 10px; }
-            .exercise-card { padding: 15px; }
-        }
+        
+        a { color: var(--accent); text-decoration: none; }
     </style>
 </head>
 <body>
 
 <header>
     <h1>Taller de Repaso</h1>
-    <p>Ecuaciones Diferenciales | Desarrollo Paso a Paso</p>
-    <div style="margin-top: 10px; font-size: 0.9rem;">
-        <strong>Estudiante:</strong> Flex Edwin &nbsp;|&nbsp; 
-        <strong>Fecha:</strong> 21 Enero 2026<br>
-        <a href="https://www.flexedwin.com" style="color:var(--accent); text-decoration:none;">www.flexedwin.com</a>
+    <p>Cuaderno de Ejercicios: Paso a Paso</p>
+    <div style="margin-top:10px; font-size: 0.9rem;">
+        <strong>Flex Edwin</strong> | 21 Enero 2026<br>
+        <a href="https://www.flexedwin.com">www.flexedwin.com</a>
     </div>
 </header>
 
@@ -184,183 +180,185 @@
 
     <div class="section-title">I. Derivadas</div>
 
-    <!-- EJERCICIO 1: Replica exacta de tu imagen -->
+    <!-- EJERCICIO 1 -->
     <div class="exercise-card">
-        <span class="exercise-num">#1</span>
+        <div class="exercise-num">#1</div>
         <div class="main-equation">$$f(x) = e^{3x^2 + 2x + 1}$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Análisis Inicial:</span>
-            Tenemos una función exponencial $e^u$. La regla dice que su derivada es "ella misma" multiplicada por la "derivada del exponente".
+        <div class="formula-box">
+            <span class="formula-title">Fórmula a usar: Regla de la Cadena (Exponencial)</span>
+            $$\frac{d}{dx}[e^u] = e^u \cdot u'$$
+            Donde $u$ es el exponente.
         </div>
 
-        <div class="scratchpad">
-            <span class="scratchpad-title">Cálculos Auxiliares (Derivada del Exponente):</span>
-            Saco el exponente aparte para derivarlo con calma:<br>
-            $u = 3x^2 + 2x + 1$<br><br>
-            Voy término por término:<br>
-            1) $3x^2 \to$ Bajo el 2 y multiplico: $3 \cdot (2) \cdot x^{(2-1)} = 6x$.<br>
-            2) $2x \to$ La derivada de $x$ es 1: $2 \cdot (1) = 2$.<br>
-            3) $1 \to$ La derivada de una constante es $\emptyset$ (Cero).<br><br>
-            Resultado de la interna: <strong>$6x + 2$</strong>.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Identificar y derivar $u$ (el exponente) aparte.</span>
+            $u = 3x^2 + 2x + 1$<br>
+            $u' = (3 \cdot 2x) + (2 \cdot 1) + 0$<br>
+            $u' = 6x + 2$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Uniendo todo:</span>
-            Ahora aplico la regla de la cadena:
-            $$f'(x) = \text{Función Original} \cdot \text{Derivada Interna}$$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Reemplazar en la fórmula.</span>
             $$f'(x) = e^{3x^2 + 2x + 1} \cdot (6x + 2)$$
         </div>
 
         <div class="final-answer">
-            Respuesta:<br>
+            Respuesta (Factorizando el 2):<br>
             $$f'(x) = 2(3x + 1)e^{3x^2 + 2x + 1}$$
         </div>
     </div>
 
     <!-- EJERCICIO 2 -->
     <div class="exercise-card">
-        <span class="exercise-num">#2</span>
+        <div class="exercise-num">#2</div>
         <div class="main-equation">$$g(x) = \frac{x^3}{\ln(x)}$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Estrategia:</span>
-            Es una división. Toca usar la Regla del Cociente: "El de abajo por derivada del de arriba MENOS el de arriba por derivada del de abajo, todo sobre el de abajo al cuadrado".
+        <div class="formula-box">
+            <span class="formula-title">Fórmula a usar: Regla del Cociente</span>
+            $$\left( \frac{u}{v} \right)' = \frac{u'v - uv'}{v^2}$$
         </div>
 
-        <div class="scratchpad">
-            <span class="scratchpad-title">Mis piezas:</span>
-            Arriba ($u$) = $x^3 \quad \to \quad u' = 3x^2$<br>
-            Abajo ($v$) = $\ln(x) \quad \to \quad v' = \frac{1}{x}$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Piezas del rompecabezas.</span>
+            $u = x^3 \quad \to \quad u' = 3x^2$<br>
+            $v = \ln(x) \quad \to \quad v' = \frac{1}{x}$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Armando el rompecabezas:</span>
-            $$g'(x) = \frac{(\ln x) \cdot (3x^2) - (x^3) \cdot (\frac{1}{x})}{(\ln x)^2}$$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Sustitución en la fórmula.</span>
+            $$g'(x) = \frac{(3x^2)(\ln x) - (x^3)(\frac{1}{x})}{(\ln x)^2}$$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Carpintería Matemática (Simplificar):</span>
-            Miro el término de la derecha: $x^3 \cdot \frac{1}{x}$.<br>
-            Resto exponentes: $3 - 1 = 2$. Me queda $x^2$.<br>
-            Entonces: $3x^2 \ln(x) - x^2$ en el numerador.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 3: Simplificación algebraica (Restar exponentes).</span>
+            El término $x^3 \cdot \frac{1}{x}$ es igual a $\frac{x^3}{x^1} = x^2$.<br>
+            Queda: $3x^2 \ln(x) - x^2$ en el numerador.
         </div>
 
         <div class="final-answer">
-            Respuesta (Factorizando $x^2$):<br>
+            Respuesta (Factor común $x^2$):<br>
             $$g'(x) = \frac{x^2(3\ln(x) - 1)}{\ln^2(x)}$$
         </div>
     </div>
 
     <!-- EJERCICIO 3 -->
     <div class="exercise-card">
-        <span class="exercise-num">#3</span>
+        <div class="exercise-num">#3</div>
         <div class="main-equation">$$\sin(x) + \cos(y) = xy$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Paso a paso:</span>
-            Derivo todo respecto a $x$. OJO: Cuando toque la $y$, agrego $y'$.
+        <div class="formula-box">
+            <span class="formula-title">Fórmulas: Implícita y Producto</span>
+            1. $\frac{d}{dx}[\cos(y)] = -\sin(y) \cdot y'$ (Cadena)<br>
+            2. $\frac{d}{dx}[xy] = (1)y + x(y')$ (Producto)
         </div>
 
-        <div class="scratchpad">
-            <span class="scratchpad-title">Desglose:</span>
-            • Derivada de $\sin(x) \to \cos(x)$<br>
-            • Derivada de $\cos(y) \to -\sin(y) \cdot y'$ (Regla de la Cadena)<br>
-            • Derivada de $xy \to$ Es un producto. $(1 \cdot y) + (x \cdot y')$
-        </div>
-
-        <div class="step-block">
-            <span class="step-title">Ecuación resultante:</span>
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Derivamos toda la línea.</span>
             $$\cos(x) - \sin(y)y' = y + xy'$$
-            Ahora es solo álgebra. Paso las $y'$ para la derecha:
-            $$\cos(x) - y = xy' + \sin(y)y'$$
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Agrupar términos (Álgebra).</span>
+            Pasamos el $xy'$ de la derecha a restar a la izquierda.<br>
+            Pasamos el $\cos(x)$ de la izquierda a restar a la derecha. (O reordenamos como prefieras).
+            $$-\sin(y)y' - xy' = y - \cos(x)$$
+            *Nota: Multiplicaré todo por -1 para que se vea más bonito:*
+            $$\sin(y)y' + xy' = \cos(x) - y$$
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 3: Sacar factor común $y'$.</span>
+            $$y'(\sin(y) + x) = \cos(x) - y$$
         </div>
 
         <div class="final-answer">
-            Respuesta (Despejando $y'$):<br>
+            Respuesta (Pasar a dividir el paréntesis):<br>
             $$y' = \frac{\cos(x) - y}{x + \sin(y)}$$
         </div>
     </div>
 
     <!-- EJERCICIO 4 -->
     <div class="exercise-card">
-        <span class="exercise-num">#4</span>
+        <div class="exercise-num">#4</div>
         <div class="main-equation">$$h(x) = \ln(2x^3 - x^2 + 3x - 1)$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Regla:</span>
-            Para derivar $\ln(\text{algo})$, pongo la derivada de ese "algo" arriba, y el "algo" original abajo.
+        <div class="formula-box">
+            <span class="formula-title">Fórmula: Derivada de Logaritmo</span>
+            $$\frac{d}{dx}[\ln(u)] = \frac{u'}{u}$$
         </div>
 
-        <div class="scratchpad">
-            <span class="scratchpad-title">Derivando el argumento:</span>
-            $2x^3 \to 2 \cdot 3x^2 = 6x^2$<br>
-            $-x^2 \to -2x$<br>
-            $+3x \to +3$<br>
-            $-1 \to 0$<br>
-            Total: $6x^2 - 2x + 3$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Cálculo de $u'$ (Derivada del argumento):</span>
+            $u = 2x^3 - x^2 + 3x - 1$<br>
+            $u' = 6x^2 - 2x + 3$
         </div>
 
         <div class="final-answer">
-            Respuesta:<br>
+            Respuesta (Aplicando fórmula):<br>
             $$h'(x) = \frac{6x^2 - 2x + 3}{2x^3 - x^2 + 3x - 1}$$
         </div>
     </div>
 
     <!-- EJERCICIO 5 -->
     <div class="exercise-card">
-        <span class="exercise-num">#5</span>
+        <div class="exercise-num">#5</div>
         <div class="main-equation">$$f(x) = \frac{e^x - 1}{\sqrt{x}}$$</div>
 
-        <div class="scratchpad">
-            <span class="scratchpad-title">Preparación:</span>
-            Esa raíz me estorba. La escribo como potencia: $x^{1/2}$.<br>
-            Derivada de $x^{1/2} \to$ Bajo el $1/2$, resto 1 al exponente ($1/2 - 1 = -1/2$).<br>
-            Queda: $\frac{1}{2}x^{-1/2} = \frac{1}{2\sqrt{x}}$.
+        <div class="formula-box">
+            <span class="formula-title">Fórmula: Potencia (para la raíz)</span>
+            $$\frac{d}{dx}[x^n] = nx^{n-1}$$
+            Recordar que $\sqrt{x} = x^{1/2}$.
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Aplicando Cociente:</span>
-            $$f'(x) = \frac{(e^x)(\sqrt{x}) - (e^x - 1)(\frac{1}{2\sqrt{x}})}{(\sqrt{x})^2}$$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Derivar componentes.</span>
+            $u = e^x - 1 \to u' = e^x$<br>
+            $v = x^{1/2} \to v' = \frac{1}{2}x^{-1/2} = \frac{1}{2\sqrt{x}}$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Limpieza (Álgebra):</span>
-            Para no tener fracciones montadas sobre fracciones, multiplico todo (arriba y abajo) por $2\sqrt{x}$.
-            <br>• $e^x\sqrt{x} \cdot 2\sqrt{x} = 2x e^x$
-            <br>• La fracción se cancela y queda $-(e^x - 1)$.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Aplicar Regla del Cociente.</span>
+            $$f'(x) = \frac{e^x\sqrt{x} - (e^x - 1)\frac{1}{2\sqrt{x}}}{x}$$
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 3: Truco Algebraico (Eliminar fracción doble).</span>
+            Para quitar el $2\sqrt{x}$ pequeño, multiplicamos el numerador y denominador por $2\sqrt{x}$.
+            <br>• Arriba: $e^x\sqrt{x} \cdot 2\sqrt{x} = 2xe^x$.
+            <br>• Arriba (segunda parte): Se cancela la fracción.
+            <br>• Abajo: $x \cdot 2\sqrt{x} = 2x\sqrt{x}$.
         </div>
 
         <div class="final-answer">
             Respuesta:<br>
-            $$f'(x) = \frac{e^x(2x - 1) + 1}{2x\sqrt{x}}$$
+            $$f'(x) = \frac{2xe^x - e^x + 1}{2x\sqrt{x}}$$
         </div>
     </div>
 
     <!-- EJERCICIO 6 -->
     <div class="exercise-card">
-        <span class="exercise-num">#6</span>
+        <div class="exercise-num">#6</div>
         <div class="main-equation">$$g(x) = \frac{x^2 \sin(x)}{x^2 + 1}$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Paso Crítico (Derivada del Numerador):</span>
-            El numerador $x^2 \sin(x)$ NO es simple. Es una multiplicación.
-            <br>Derivo primero: $2x \sin(x)$.
-            <br>Derivo segundo: $x^2 \cos(x)$.
-            <br>Suma: $2x\sin(x) + x^2\cos(x)$.
+        <div class="formula-box">
+            <span class="formula-title">Fórmula: Producto (para el numerador)</span>
+            $$(uv)' = u'v + uv'$$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Armado del Cociente:</span>
-            Denominador al cuadrado abajo. Arriba hacemos la resta cruzada.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Derivar el numerador $x^2 \sin(x)$.</span>
+            $(2x)(\sin x) + (x^2)(\cos x)$. Esto será nuestro $u'$ gigante.
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Armar el cociente completo.</span>
             $$g'(x) = \frac{[2x\sin x + x^2\cos x](x^2+1) - (x^2\sin x)(2x)}{(x^2+1)^2}$$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Simplificación:</span>
-            Si multiplico $2x\sin(x)$ por el $x^2$ del paréntesis, me da $2x^3\sin(x)$.
-            Al final tengo un $-(x^2\sin x)(2x)$ que es $-2x^3\sin(x)$.
-            ¡Se cancelan!
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 3: Cancelación de términos.</span>
+            Observamos que si expandimos, el término $2x \sin x \cdot x^2$ (que es $2x^3\sin x$) se anula con el término final $-2x^3\sin x$.
         </div>
 
         <div class="final-answer">
@@ -371,42 +369,56 @@
 
     <!-- EJERCICIO 7 -->
     <div class="exercise-card">
-        <span class="exercise-num">#7</span>
+        <div class="exercise-num">#7</div>
         <div class="main-equation">$$x^3 + y^3 = 9xy$$</div>
 
-        <div class="scratchpad">
-            <span class="scratchpad-title">Derivando cada término:</span>
-            $x^3 \to 3x^2$<br>
-            $y^3 \to 3y^2 \cdot y'$ (Implícita)<br>
-            $9xy \to$ Dejo el 9 quieto. Derivo $x \cdot y$ como producto: $(1\cdot y + x \cdot y')$.
+        <div class="formula-box">
+            <span class="formula-title">Estrategia</span>
+            Derivación implícita en ambos lados.
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Igualdad:</span>
-            $$3x^2 + 3y^2y' = 9y + 9xy'$$
-            Veo puros múltiplos de 3. Divido todo por 3 para facilitar la vida:
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Derivar (dividiré por 3 mentalmente para simplificar).</span>
+            $3x^2 + 3y^2y' = 9(y + xy')$ $\to$ Dividiendo por 3:
             $$x^2 + y^2y' = 3y + 3xy'$$
         </div>
 
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Agrupar términos con $y'$.</span>
+            Pasamos el $3xy'$ a la izquierda restando.
+            Pasamos el $x^2$ a la derecha restando.
+            $$y^2y' - 3xy' = 3y - x^2$$
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 3: Factorizar $y'$.</span>
+            $$y'(y^2 - 3x) = 3y - x^2$$
+        </div>
+
         <div class="final-answer">
-            Respuesta (Agrupando y despejando):<br>
+            Respuesta (Pasar a dividir):<br>
             $$y' = \frac{3y - x^2}{y^2 - 3x}$$
         </div>
     </div>
 
     <!-- EJERCICIO 8 -->
     <div class="exercise-card">
-        <span class="exercise-num">#8</span>
+        <div class="exercise-num">#8</div>
         <div class="main-equation">$$h(x) = \frac{\ln(x)}{x}$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Aplicación Directa (Cociente):</span>
+        <div class="formula-box">
+            <span class="formula-title">Fórmula: Cociente</span>
+            $$\frac{u'v - uv'}{v^2}$$
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Sustitución:</span>
             $$h'(x) = \frac{(\frac{1}{x})(x) - (\ln x)(1)}{x^2}$$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Detalle:</span>
-            $\frac{1}{x} \cdot x$ es igual a 1.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Simplificación:</span>
+            $\frac{1}{x} \cdot x = 1$.
         </div>
 
         <div class="final-answer">
@@ -417,17 +429,18 @@
 
     <!-- EJERCICIO 9 -->
     <div class="exercise-card">
-        <span class="exercise-num">#9</span>
+        <div class="exercise-num">#9</div>
         <div class="main-equation">$$f(x) = e^{x^3}$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Lógica:</span>
-            Igual que el ejercicio #1. Función exponencial $\times$ Derivada del exponente.
+        <div class="formula-box">
+            <span class="formula-title">Fórmula: Cadena</span>
+            Derivada de externa $\times$ Derivada de interna
         </div>
 
-        <div class="scratchpad">
-            <span class="scratchpad-title">Derivada interna:</span>
-            $x^3 \to 3x^2$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Cálculo:</span>
+            Función: $e^{(\dots)}$
+            Interna: $x^3 \to 3x^2$.
         </div>
 
         <div class="final-answer">
@@ -438,65 +451,76 @@
 
     <!-- EJERCICIO 10 -->
     <div class="exercise-card">
-        <span class="exercise-num">#10</span>
+        <div class="exercise-num">#10</div>
         <div class="main-equation">$$g(x) = \ln(x) \cdot \cos(x)$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Regla del Producto:</span>
-            Derivada del primero $\times$ Segundo SIN derivar + Primero SIN derivar $\times$ Derivada del segundo.
+        <div class="formula-box">
+            <span class="formula-title">Fórmula: Producto</span>
+            $$u'v + uv'$$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Sustitución:</span>
-            $(\frac{1}{x}) \cdot \cos(x) + \ln(x) \cdot (-\sin(x))$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Aplicación:</span>
+            $u = \ln x \to u' = 1/x$<br>
+            $v = \cos x \to v' = -\sin x$
         </div>
 
         <div class="final-answer">
-            Respuesta (Ordenando signos):<br>
+            Respuesta:<br>
             $$g'(x) = \frac{\cos(x)}{x} - \ln(x)\sin(x)$$
         </div>
     </div>
 
     <!-- EJERCICIO 11 -->
     <div class="exercise-card">
-        <span class="exercise-num">#11</span>
+        <div class="exercise-num">#11</div>
         <div class="main-equation">$$e^x + y^2 = \sin(xy)$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Lado Derecho (El difícil):</span>
-            Para derivar $\sin(xy)$, derivo seno $\to$ coseno.
-            Y multiplico por la derivada de $xy$.
-            Como vimos en el ejercicio #3, la derivada de $xy$ es $(y + xy')$.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Derivada y Regla Cadena Compleja.</span>
+            Izquierda: $e^x + 2yy'$<br>
+            Derecha: $\cos(xy) \cdot (y + xy')$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Armando la ecuación:</span>
-            $$e^x + 2yy' = \cos(xy) \cdot [y + xy']$$
-            Rompo el paréntesis de la derecha:
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Expandir el paréntesis de la derecha (Propiedad distributiva).</span>
             $$e^x + 2yy' = y\cos(xy) + xy'\cos(xy)$$
         </div>
 
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 3: Agrupar términos con $y'$ a la izquierda.</span>
+            $$2yy' - xy'\cos(xy) = y\cos(xy) - e^x$$
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 4: Factorizar $y'$.</span>
+            $$y'(2y - x\cos(xy)) = y\cos(xy) - e^x$$
+        </div>
+
         <div class="final-answer">
-            Respuesta (Agrupando $y'$ a la izquierda):<br>
+            Respuesta (Dividir):<br>
             $$y' = \frac{y\cos(xy) - e^x}{2y - x\cos(xy)}$$
         </div>
     </div>
 
     <!-- EJERCICIO 12 -->
     <div class="exercise-card">
-        <span class="exercise-num">#12</span>
+        <div class="exercise-num">#12</div>
         <div class="main-equation">$$h(x) = \frac{\sin(x^2)}{x}$$</div>
 
-        <div class="scratchpad">
-            <span class="scratchpad-title">Cuidado con el numerador:</span>
-            No es $\sin(x) \cdot \sin(x)$. Es $\sin(\text{angulo } x^2)$.
-            Derivada = $\cos(x^2) \cdot 2x$.
+        <div class="formula-box">
+            <span class="formula-title">Fórmulas: Cociente y Cadena</span>
+            Derivada de $\sin(u) = \cos(u) \cdot u'$.
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Regla Cociente:</span>
-            $$h'(x) = \frac{(2x\cos(x^2)) \cdot x - \sin(x^2) \cdot 1}{x^2}$$
-            Multiplico $2x \cdot x = 2x^2$.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Numerador (Cadena).</span>
+            $u = \sin(x^2) \to u' = \cos(x^2) \cdot 2x$.
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Cociente.</span>
+            $$h'(x) = \frac{[2x\cos(x^2)](x) - \sin(x^2)(1)}{x^2}$$
         </div>
 
         <div class="final-answer">
@@ -507,20 +531,24 @@
 
     <!-- EJERCICIO 13 -->
     <div class="exercise-card">
-        <span class="exercise-num">#13</span>
+        <div class="exercise-num">#13</div>
         <div class="main-equation">$$f(x) = \sqrt{e^{2x} - 1}$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Estrategia de Capas (Cadena Doble):</span>
-            1. <strong>Capa Externa (Raíz):</strong> Derivo como $\frac{1}{2\sqrt{...}}$.<br>
-            2. <strong>Capa Media (Exponencial):</strong> $e^{2x}$.<br>
-            3. <strong>Capa Interna (Exponente):</strong> La derivada de $2x$ es 2.
+        <div class="formula-box">
+            <span class="formula-title">Fórmula: Regla de la Cadena (x3)</span>
+            Raíz $\to$ Exponencial $\to$ Lineal
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Multiplicación en cadena:</span>
-            $$f'(x) = \frac{1}{2\sqrt{e^{2x}-1}} \cdot e^{2x} \cdot 2$$
-            El 2 de arriba se va con el 2 de abajo.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Desglose de capas:</span>
+            1. Derivada de raíz: $\frac{1}{2\sqrt{\dots}}$<br>
+            2. Derivada de lo de adentro ($e^{2x}-1$): $e^{2x} \cdot 2$.
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Unión:</span>
+            $$f'(x) = \frac{1}{2\sqrt{e^{2x}-1}} \cdot 2e^{2x}$$
+            El 2 multiplica y divide, se cancela.
         </div>
 
         <div class="final-answer">
@@ -531,20 +559,22 @@
 
     <!-- EJERCICIO 14 -->
     <div class="exercise-card">
-        <span class="exercise-num">#14</span>
+        <div class="exercise-num">#14</div>
         <div class="main-equation">$$g(x) = \frac{\tan(x)}{x^2}$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Derivadas básicas:</span>
-            $\tan(x) \to \sec^2(x)$<br>
-            $x^2 \to 2x$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Aplicar Cociente.</span>
+            $$g'(x) = \frac{(\sec^2 x)(x^2) - (\tan x)(2x)}{(x^2)^2}$$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Fórmula:</span>
-            $$g'(x) = \frac{\sec^2(x)\cdot x^2 - \tan(x)\cdot 2x}{(x^2)^2}$$
-            El denominador queda $x^4$. Arriba factorizo una $x$: $x(x\sec^2 x - 2\tan x)$.
-            Cancelo esa $x$ con una de abajo.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Factorizar $x$ arriba.</span>
+            Numerador = $x(x\sec^2 x - 2\tan x)$.
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 3: Cancelar con denominador ($x^4$).</span>
+            Una $x$ de arriba mata una de abajo. Queda $x^3$ abajo.
         </div>
 
         <div class="final-answer">
@@ -555,18 +585,23 @@
 
     <!-- EJERCICIO 15 -->
     <div class="exercise-card">
-        <span class="exercise-num">#15</span>
+        <div class="exercise-num">#15</div>
         <div class="main-equation">$$x^4 + y^4 = 16$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Derivando:</span>
-            $4x^3 + 4y^3y' = 0$. (¡Ojo! Derivada de 16 es 0).
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Derivar.</span>
+            $4x^3 + 4y^3y' = 0$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Despejando:</span>
-            $4y^3y' = -4x^3$.
-            Paso a dividir. Los cuatros se cancelan.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Mover término.</span>
+            Pasamos $4x^3$ a restar al otro lado.
+            $4y^3y' = -4x^3$
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 3: Dividir.</span>
+            $y' = \frac{-4x^3}{4y^3}$ (Simplificar los 4).
         </div>
 
         <div class="final-answer">
@@ -579,37 +614,35 @@
 
     <!-- INTEGRAL 1 -->
     <div class="exercise-card">
-        <span class="exercise-num">#1</span>
+        <div class="exercise-num">#1</div>
         <div class="main-equation">$$I = \int e^{x^2} \sin(x) \, dx$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Prueba (Sustitución):</span>
-            Intentemos $u = x^2$. Entonces $du = 2x dx$. O sea $dx = \frac{du}{2x}$.
-            Sustituimos:
-            $$\int e^u \sin(x) \frac{du}{2x}$$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Intento de Sustitución:</span>
+            Si $u = x^2 \to du = 2x dx$.<br>
+            Integral queda: $\int e^u \sin(\sqrt{u}) \frac{du}{2\sqrt{u}}$.
         </div>
 
         <div class="impossible-note">
-            <strong>Análisis de fallo:</strong><br>
-            Mira que nos queda una $x$ dividiendo y un $\sin(x)$ multiplicando que NO se pueden cancelar ni convertir fácilmente a $u$. La integral se trabó. No tiene solución por métodos normales.
+            <strong>Conclusión:</strong><br>
+            La variable $x$ no desaparece limpiamente. Quedan términos mixtos imposibles de integrar.
         </div>
     </div>
 
     <!-- INTEGRAL 2 -->
     <div class="exercise-card">
-        <span class="exercise-num">#2</span>
+        <div class="exercise-num">#2</div>
         <div class="main-equation">$$I = \int \frac{1}{x \ln(x)} \, dx$$</div>
 
-        <div class="scratchpad">
-            <span class="scratchpad-title">Observación:</span>
-            Veo $\ln(x)$. Su derivada es $1/x$.
-            ¡Y veo el $1/x$ ahí mismo en la integral! Es sustitución directa.
+        <div class="formula-box">
+            <span class="formula-title">Sustitución</span>
+            Identificar función y su derivada.
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Desarrollo:</span>
-            $u = \ln(x) \quad \to \quad du = \frac{1}{x} dx$.
-            Reemplazo todo eso por $du$:
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Cambio de variable.</span>
+            $u = \ln(x) \to du = \frac{1}{x} dx$.<br>
+            Reemplazamos exactamente eso en la integral:
             $$I = \int \frac{1}{u} du$$
         </div>
 
@@ -621,20 +654,23 @@
 
     <!-- INTEGRAL 3 -->
     <div class="exercise-card">
-        <span class="exercise-num">#3</span>
+        <div class="exercise-num">#3</div>
         <div class="main-equation">$$I = \int \cos^2(x) \, dx$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Truco de Identidad:</span>
-            Resolver esto directo es difícil. Mejor uso la identidad:
+        <div class="formula-box">
+            <span class="formula-title">Identidad Trigonométrica</span>
             $$\cos^2(x) = \frac{1 + \cos(2x)}{2}$$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Separando:</span>
-            $$\int \frac{1}{2} dx + \int \frac{1}{2}\cos(2x) dx$$
-            1. Integral de $1/2$ es $x/2$.<br>
-            2. Integral de $\cos(2x)$: Sale un $1/2$ por la derivada interna del $2x$. Queda $\frac{1}{4}\sin(2x)$.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Reescribir.</span>
+            $$I = \int \frac{1}{2} dx + \int \frac{1}{2}\cos(2x) dx$$
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Integrar por separado.</span>
+            1. $\int 1/2 = x/2$.<br>
+            2. $\int \cos(2x)$: Sale un $1/2$ adicional por la regla de sustitución inversa ($u=2x$).
         </div>
 
         <div class="final-answer">
@@ -645,74 +681,67 @@
 
     <!-- INTEGRAL 4 -->
     <div class="exercise-card">
-        <span class="exercise-num">#4</span>
+        <div class="exercise-num">#4</div>
         <div class="main-equation">$$I = \int \frac{\ln(x)}{\sqrt{x}} \, dx$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Paso 1: Quitar la raíz (Sustitución)</span>
-            $w = \sqrt{x} \to x = w^2 \to dx = 2w dw$.
-            Reemplazo:
-            $$I = \int \frac{\ln(w^2)}{w} (2w dw) = \int \frac{2\ln w}{w} 2w dw$$
-            Cancelo las $w$: $4 \int \ln(w) dw$.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Sustitución para quitar raíz.</span>
+            $w = \sqrt{x} \to dx = 2w dw$.<br>
+            Queda: $4\int \ln(w) dw$.
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Paso 2: Por Partes</span>
-            La integral de $\ln(w)$ es conocida: $w\ln w - w$.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Integración por Partes.</span>
+            Usando la fórmula $\int \ln w = w\ln w - w$.
         </div>
 
         <div class="final-answer">
-            Respuesta (Reemplazando $w=\sqrt{x}$):<br>
+            Respuesta:<br>
             $$I = 4\sqrt{x}\ln(\sqrt{x}) - 4\sqrt{x} + C$$
         </div>
     </div>
 
     <!-- INTEGRAL 5 -->
     <div class="exercise-card">
-        <span class="exercise-num">#5</span>
+        <div class="exercise-num">#5</div>
         <div class="main-equation">$$I = \int \frac{e^x}{x^2 + 1} \, dx$$</div>
-
         <div class="impossible-note">
-            <strong>Análisis:</strong><br>
-            Intenté sustituir $u=x^2+1$, falla.<br>
-            Intenté sustituir $u=e^x$, falla (queda logaritmo en denominador).<br>
-            Conclusión: No es una integral elemental.
+            No tiene primitiva elemental (Analizado por falla de sustitución).
         </div>
     </div>
 
     <!-- INTEGRAL 6 -->
     <div class="exercise-card">
-        <span class="exercise-num">#6</span>
+        <div class="exercise-num">#6</div>
         <div class="main-equation">$$I = \int \frac{x \sin(x)}{x^2 + 1} \, dx$$</div>
-
         <div class="impossible-note">
-            <strong>Análisis:</strong><br>
-            Al aplicar integración por partes, se generan términos más complejos ($\ln(x^2+1)$ multiplicando trigonométricas). No se simplifica, se complica más. No elemental.
+            La integración por partes genera una integral más compleja con logaritmos y cosenos. No elemental.
         </div>
     </div>
 
     <!-- INTEGRAL 7 -->
     <div class="exercise-card">
-        <span class="exercise-num">#7</span>
+        <div class="exercise-num">#7</div>
         <div class="main-equation">$$I = \int x^2 \cos(x) \, dx$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Plan: Integrar por partes 2 veces</span>
-            Tenemos $x^2$. Hay que derivarlo dos veces para que desaparezca.
+        <div class="formula-box">
+            <span class="formula-title">Integración por Partes</span>
+            $$\int u dv = uv - \int v du$$
         </div>
 
-        <div class="scratchpad">
-            <span class="scratchpad-title">Ronda 1:</span>
-            $u = x^2, dv = \cos x dx \to$ Resultado parcial: $x^2\sin x - \int 2x\sin x dx$.
-            <br><br>
-            <span class="scratchpad-title">Ronda 2 (a la integral que quedó):</span>
-            $u = 2x, dv = \sin x dx \to$ Resultado: $-2x\cos x - \int (-2\cos x) dx$.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Primera vuelta ($u=x^2$).</span>
+            $I = x^2\sin x - \int 2x\sin x dx$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Uniendo todo:</span>
-            Ten cuidado con los signos negativos.
-            $$I = x^2\sin x - (-2x\cos x + 2\sin x)$$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Segunda vuelta ($u=2x$).</span>
+            Para $\int 2x\sin x$, obtenemos $-2x\cos x + 2\sin x$.
+        </div>
+
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 3: Restar (Cuidado con los signos).</span>
+            $x^2\sin x - [-2x\cos x + 2\sin x]$
         </div>
 
         <div class="final-answer">
@@ -723,41 +752,31 @@
 
     <!-- INTEGRAL 8 -->
     <div class="exercise-card">
-        <span class="exercise-num">#8</span>
+        <div class="exercise-num">#8</div>
         <div class="main-equation">$$I = \int \ln(x) \sin(x) \, dx$$</div>
-
         <div class="impossible-note">
-            <strong>Análisis:</strong><br>
-            Este procedimiento lleva a la integral $\int \frac{\cos x}{x} dx$. Los libros dicen que eso es $Ci(x)$, una función especial que no podemos calcular a mano con funciones normales.
+            Conduce a la Integral Coseno $Ci(x)$, no resoluble con álgebra básica.
         </div>
     </div>
 
     <!-- INTEGRAL 9 -->
     <div class="exercise-card">
-        <span class="exercise-num">#9</span>
+        <div class="exercise-num">#9</div>
         <div class="main-equation">$$I = \int \frac{e^x}{x^3} \, dx$$</div>
-
         <div class="impossible-note">
-            <strong>Análisis:</strong><br>
-            Si reduzco el denominador derivando, la potencia sube a $x^{-2}$, $x^{-1}$... y llego a $\int \frac{e^x}{x} dx$. Esto es la "Integral Exponencial" ($Ei$). No tiene solución simple.
+            Conduce a la Integral Exponencial $Ei(x)$.
         </div>
     </div>
 
     <!-- INTEGRAL 10 -->
     <div class="exercise-card">
-        <span class="exercise-num">#10</span>
+        <div class="exercise-num">#10</div>
         <div class="main-equation">$$I = \int \frac{\cos(x)}{\sin(x)} \, dx$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Ojo clínico:</span>
-            Arriba tengo $\cos(x)$. Abajo $\sin(x)$.
-            ¡La derivada de seno es coseno!
-        </div>
-
-        <div class="step-block">
-            <span class="step-title">Sustitución directa:</span>
-            $u = \sin(x) \to du = \cos(x) dx$.
-            $$I = \int \frac{1}{u} du$$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Análisis:</span>
+            Numerador es derivada del denominador.
+            $u = \sin x \to du = \cos x dx$.
         </div>
 
         <div class="final-answer">
@@ -768,81 +787,73 @@
 
     <!-- INTEGRAL 11 -->
     <div class="exercise-card">
-        <span class="exercise-num">#11</span>
+        <div class="exercise-num">#11</div>
         <div class="main-equation">$$I = \int x^2 e^{-x^2} \, dx$$</div>
-
         <div class="impossible-note">
-            <strong>Análisis:</strong><br>
-            Intenté por partes. Llego a $\int e^{-x^2} dx$. Esa es la integral Gaussiana. No tiene primitiva.
+            Relacionada con la Función Error (Gaussiana). No elemental.
         </div>
     </div>
 
     <!-- INTEGRAL 12 -->
     <div class="exercise-card">
-        <span class="exercise-num">#12</span>
+        <div class="exercise-num">#12</div>
         <div class="main-equation">$$I = \int \ln(x) \cos(x) \, dx$$</div>
-
         <div class="impossible-note">
-            <strong>Análisis:</strong><br>
-            Similar al #8. Llega a una función "Integral Seno" ($Si(x)$). Imposible con álgebra básica.
+            Conduce a la Integral Seno $Si(x)$.
         </div>
     </div>
 
     <!-- INTEGRAL 13 -->
     <div class="exercise-card">
-        <span class="exercise-num">#13</span>
+        <div class="exercise-num">#13</div>
         <div class="main-equation">$$I = \int \frac{e^x}{x^2 \ln(x)} \, dx$$</div>
-
         <div class="impossible-note">
-            <strong>Análisis:</strong><br>
-            Mezcla exponencial, potencia y logaritmo en división. Es extremadamente compleja y no tiene solución elemental.
+            Estructura trascendente mixta sin solución elemental.
         </div>
     </div>
 
     <!-- INTEGRAL 14 -->
     <div class="exercise-card">
-        <span class="exercise-num">#14</span>
+        <div class="exercise-num">#14</div>
         <div class="main-equation">$$I = \int x^2 e^x \, dx$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Procedimiento (Doble Partes):</span>
-            1) $u=x^2, dv=e^x \to x^2 e^x - \int 2x e^x$.<br>
-            2) Resolvemos $\int 2x e^x$: $2(xe^x - e^x)$.
+        <div class="algebra-step">
+            <span class="algebra-instruction">Método Tabular / Partes iteradas.</span>
+            Derivamos $x^2 \to 2x \to 2 \to 0$.<br>
+            Integramos $e^x \to e^x \to e^x \to e^x$.<br>
+            Signos alternados: $+ - +$.
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Resultado completo:</span>
-            $$I = x^2 e^x - 2xe^x + 2e^x$$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Armado:</span>
+            $x^2e^x - 2xe^x + 2e^x$
         </div>
 
         <div class="final-answer">
-            Respuesta (Factorizando $e^x$):<br>
+            Respuesta:<br>
             $$I = e^x(x^2 - 2x + 2) + C$$
         </div>
     </div>
 
     <!-- INTEGRAL 15 -->
     <div class="exercise-card">
-        <span class="exercise-num">#15</span>
+        <div class="exercise-num">#15</div>
         <div class="main-equation">$$I = \int \frac{1}{x^2 + 4x + 5} \, dx$$</div>
 
-        <div class="step-block">
-            <span class="step-title">Problema:</span>
-            El de abajo no se puede factorizar fácil (dos números que sumen 4 y multipliquen 5).
+        <div class="formula-box">
+            <span class="formula-title">Técnica: Completar el Cuadrado</span>
+            $(x+a)^2 = x^2 + 2ax + a^2$
         </div>
 
-        <div class="scratchpad">
-            <span class="scratchpad-title">Completar cuadrados:</span>
-            Tomo el 4, lo divido por 2 y lo elevo al cuadrado: $2^2 = 4$.
-            Separo el 5 como $4+1$.
-            $$x^2 + 4x + 4 + 1 = (x+2)^2 + 1$$
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 1: Transformar denominador.</span>
+            $x^2 + 4x + 5 = (x^2 + 4x + 4) + 1 = (x+2)^2 + 1$
         </div>
 
-        <div class="step-block">
-            <span class="step-title">Nueva Integral:</span>
-            $$I = \int \frac{1}{(x+2)^2 + 1} dx$$
-            Hago $u = x+2$. Queda $\int \frac{1}{u^2+1} du$.
-            ¡Esa es arco tangente!
+        <div class="algebra-step">
+            <span class="algebra-instruction">Paso 2: Sustitución.</span>
+            $u = x+2$. Integral queda $\int \frac{1}{u^2+1}$.
+            Esa es arco tangente.
         </div>
 
         <div class="final-answer">
@@ -854,8 +865,7 @@
 </div>
 
 <footer>
-    <p>Desarrollado para el jinete jz, clase de Ecuaciones Diferenciales</p>
-    <p>&copy; 2026 Flex Edwin</p>
+    <p>Desarrollado por Flex Edwin para el jinete JZ, clase de Ecuaciones</p>
 </footer>
 
 </body>
