@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Taller de Repaso | Flex Edwin</title>
     
-    <!-- FUENTES: Manuscrita y Monospace -->
+    <!-- FUENTES -->
     <link href="https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&family=Roboto:wght@300;400;500&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet">
     
-    <!-- CONFIGURACIÓN MATHJAX (CORREGIDA: Incluye paquete 'cancel') -->
+    <!-- CONFIGURACIÓN MATHJAX -->
     <script>
     window.MathJax = {
       loader: {load: ['[tex]/cancel']},
@@ -232,14 +232,24 @@
         </div>
 
         <div class="work-step">
-            <span class="step-desc">2. Multiplicando:</span>
+            <span class="step-desc">2. Multiplicando (Uniendo las partes):</span>
             <span class="math-detail">
                 $f'(x) = e^{3x^2 + 2x + 1} \cdot (6x + 2)$
             </span>
         </div>
 
+        <div class="work-step">
+            <span class="step-desc">3. Factorización y Orden (El detalle final):</span>
+            <span class="math-detail">
+                Observamos el paréntesis $(6x + 2)$. Ambos son divisibles por 2.<br>
+                Sacamos factor común: $2(3x + 1)$.<br>
+                Reescribimos poniendo el coeficiente al inicio:<br>
+                $f'(x) = 2(3x + 1)e^{3x^2 + 2x + 1}$
+            </span>
+        </div>
+
         <div class="final-answer">
-            Respuesta:<br>
+            Respuesta Final:<br>
             $$f'(x) = 2(3x + 1)e^{3x^2 + 2x + 1}$$
         </div>
     </div>
@@ -867,7 +877,7 @@
 </div>
 
 <footer>
-    <p>Desarrollo paso a paso para el jinete JZ </p>
+    <p>Desarrollo paso a paso.</p>
     <a href="https://www.flexedwin.com">Flex Edwin</a>
 </footer>
 
